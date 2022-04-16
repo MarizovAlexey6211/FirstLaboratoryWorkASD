@@ -93,6 +93,15 @@ public:
         if (root) root->delete_node(root);
     }
 
+    bool add(const T data)
+    {
+        if (!root->containsNode(root, data)) {
+            root = root->insert(root, data);
+            size++;
+            return true;
+        }
+        return false;
+    }
     int getSize()
     {
         return size;
