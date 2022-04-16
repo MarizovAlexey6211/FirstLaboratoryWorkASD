@@ -74,6 +74,18 @@ public:
         return current;
     }
 };
+
+template <typename T>
+class Set {
+    Node<T>* root;
+    int size;
+
+public:
+    int getSize()
+    {
+        return size;
+    }
+};
 int main(int argc, char* argv[]) {
     return 0;
 }
