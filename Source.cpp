@@ -81,6 +81,18 @@ class Set {
     int size;
 
 public:
+    Set()
+    {
+        root = NULL;
+        size = 0;
+    }
+
+    
+    ~Set()
+    {
+        if (root) root->delete_node(root);
+    }
+
     int getSize()
     {
         return size;
