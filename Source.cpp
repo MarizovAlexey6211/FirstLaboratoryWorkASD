@@ -44,6 +44,14 @@ public:
         else
             return r;
     }
+    void delete_node(Node* r) {
+
+        if (r->left) delete_node(r->left);
+
+        if (r->right) delete_node(r->right);
+
+        delete r;
+    }
 };
 int main(int argc, char* argv[]) {
     return 0;
