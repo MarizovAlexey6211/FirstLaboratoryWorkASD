@@ -52,6 +52,27 @@ public:
 
         delete r;
     }
+    Node* remove_node(Node* r) {
+        Node* current;
+        if (!r->left) {
+            current = r->right;
+        }
+        else {
+            Node* previous = r;
+            current = r->left;
+            while (current->right) {
+                previous = current;
+                current = current->right;
+            }
+            if (previous != r) {
+                previous->right = current->left;
+                current->left = r->left;
+            }
+            current->right = r->right;
+        }
+        delete r;
+        return current;
+    }
 };
 int main(int argc, char* argv[]) {
     return 0;
