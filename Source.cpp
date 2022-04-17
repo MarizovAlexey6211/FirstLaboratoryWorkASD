@@ -133,5 +133,18 @@ public:
     }
 };
 int main(int argc, char* argv[]) {
+    Set<int> set;
+    set.add(4);
+    set.add(8);
+    set.add(5);
+    set.add(9);
+    set.add(12);
+    set.add(10);
+    set.add(6);
+    set.add(7);
+    set.displaySet();
+    cout << set.remove(8) << endl;
+    set.displaySet();
+    cout << set.contains(9);
     return 0;
 }
