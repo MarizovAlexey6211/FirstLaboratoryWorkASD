@@ -102,6 +102,21 @@ public:
         }
         return false;
     }
+    bool remove(const T data) {
+        Node<T>** current = &root;
+        while (*current) {
+            if (data == (*current)->data) {
+                *current = root->remove_node(*current);
+                --size;
+                return true;
+            }
+            if (data < (*current)->data)
+                current = &(*current)->left;
+            else
+                current = &(*current)->right;
+        }
+        return false;
+    }
     int getSize()
     {
         return size;
