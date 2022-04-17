@@ -117,6 +117,16 @@ public:
         }
         return false;
     }
+    bool contains(T data) const
+    {
+        return root->containsNode(root, data) ? true : false;
+    }
+    void displaySet()
+    {
+        cout << "{ ";
+        root->inorder(root);
+        cout << "}" << endl;
+    }
     int getSize()
     {
         return size;
