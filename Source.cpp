@@ -93,6 +93,13 @@ public:
         if (root) root->delete_node(root);
     }
 
+    Node<T>* begin() {
+        if (size == 0) return nullptr;
+        Node<T>* tmp = root;
+        while (tmp->left != nullptr) tmp = tmp->left;
+        return tmp;
+    }
+
     bool add(const T data)
     {
         if (!root->containsNode(root, data)) {

@@ -9,8 +9,10 @@ namespace UnitTest1
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
-		{
+		TEST_METHOD(ConstructorTest) {
+			Set<int> set;
+			Assert::IsTrue(set.getSize() == 0);
+			Assert::IsTrue(!set.begin());
 		}
 	};
 }
