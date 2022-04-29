@@ -44,5 +44,18 @@ namespace UnitTest1
 			set.add(3);
 			Assert::IsTrue(set.getSize() == 3);
 		}
+
+		TEST_METHOD(EraseTest) {
+			Set<int> set;
+			set.add(2);
+			auto tmp = set.begin();
+			set.add(1);
+			set.add(3);
+			Assert::IsTrue(set.getSize() == 3);
+			set.remove(3);
+			Assert::IsTrue(set.getSize() == 2);
+			Assert::IsTrue(tmp->right == nullptr);
+			Assert::IsTrue(tmp->left != nullptr);
+		}
 	};
 }
