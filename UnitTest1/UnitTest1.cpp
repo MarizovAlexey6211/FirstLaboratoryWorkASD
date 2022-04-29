@@ -27,5 +27,22 @@ namespace UnitTest1
 			Assert::IsTrue(!set.contains(112));
 			Assert::IsTrue(!set.contains(150));
 		}
+		TEST_METHOD(InsertTest) {
+			Set<int> set;
+			Assert::IsTrue(set.getSize() == 0);
+			Assert::IsTrue(!set.begin());
+			set.add(2);
+			auto tmp = set.begin();
+			Assert::IsTrue(set.getSize() == 1);
+			Assert::IsTrue(set.begin()->data == 2);
+			set.add(1);
+			Assert::IsTrue(set.getSize() == 2);
+			set.add(3);
+			Assert::IsTrue(set.getSize() == 3);
+			Assert::IsTrue(tmp->left->data == 1);
+			Assert::IsTrue(tmp->right->data == 3);
+			set.add(3);
+			Assert::IsTrue(set.getSize() == 3);
+		}
 	};
 }
