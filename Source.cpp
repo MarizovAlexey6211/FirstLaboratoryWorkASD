@@ -1,5 +1,17 @@
 #include<iostream>
+#include <ostream>
+#include <string>
+#include <set>
+#include <vector>
+#include <sstream>
+#include <Windows.h>
+#include <conio.h>
 using namespace std;
+void print(ostringstream& out, const vector<int>& v) {
+    for (auto el : v) {
+        out << el;
+    }
+}
 template <typename T>
 struct Node {
     
@@ -15,6 +27,15 @@ public:
         inorder(r->left);
         cout << r->data << " ";
         inorder(r->right);
+    }
+    void inorder(ostringstream& out, Node* r)
+    {
+        if (r == NULL) {
+            return;
+        }
+        inorder(out, r->left);
+        out << r->data << " ";
+        inorder(out, r->right);
     }
 
     int containsNode(Node* r, T d)
@@ -134,24 +155,30 @@ public:
         root->inorder(root);
         cout << "}" << endl;
     }
+    void print(ostringstream& out)
+    {
+        out << "{ ";
+        root->inorder(out, root);
+        out << "}" << endl;
+    }
+
     int getSize()
     {
         return size;
     }
 };
+
+void printMenu() {
+    // system("CLS");
+    cout << "1.Добавить элемент в set\n" <<
+        "2.Удалить элемент из set\n" <<
+        "3.Проверить наличие элемента в set\n" <<
+        "4.Вывести содержимое set\n" <<
+        "5.Выход\n" << endl;
+}
 int main(int argc, char* argv[]) {
-    Set<int> set;
-    set.add(4);
-    set.add(8);
-    set.add(5);
-    set.add(9);
-    set.add(12);
-    set.add(10);
-    set.add(6);
-    set.add(7);
-    set.displaySet();
-    cout << set.remove(8) << endl;
-    set.displaySet();
-    cout << set.contains(9);
-    return 0;
+    setlocale(LC_ALL, "Rus");
+
+
+
 }
