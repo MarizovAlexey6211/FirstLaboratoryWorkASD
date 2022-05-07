@@ -178,6 +178,87 @@ void printMenu() {
 }
 int main(int argc, char* argv[]) {
     setlocale(LC_ALL, "Rus");
+    int choice = 1;
+    Set<int> set;
+    printMenu();
+    choice = _getch();
+    while (choice) {
+        switch (choice) {
+        case 49: {
+            system("CLS");
+            cout << "Введите число для добавления в set: " << endl;
+            int a;
+            cin >> a;
+            while (cin.fail()) {
+                cout << "Некорректный формат" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> a;
+            }
+            bool check = set.add(a);
+            printMenu();
+            if (check)
+                cout << "Элемент успешно добавлен в set" << endl;
+            else
+                cout << "Элемент уже содержится в set" << endl;
+            choice = _getch();
+            break;
+        }
+        case 50: {
+            system("CLS");
+            cout << "Введите число для удаления в set: " << endl;
+            int a;
+            cin >> a;
+            while (cin.fail()) {
+                cout << "Некорректный формат" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> a;
+            }
+            bool check = set.remove(a);
+            printMenu();
+            if (check)
+                cout << "Элемент успешно удален из set" << endl;
+            else
+                cout << "Элемент не содержится в set" << endl;
+            choice = _getch();
+            break;
+        }
+        case 51: {
+            system("CLS");
+            cout << "Введите число для проверки содержания в set: " << endl;
+            int a;
+            cin >> a;
+            while (cin.fail()) {
+                cout << "Некорректный формат" << endl;
+                cin.clear();
+                cin.ignore(256, '\n');
+                cin >> a;
+            }
+            bool check = set.contains(a);
+            printMenu();
+            if (check)
+                cout << "Элемент содержится в set" << endl;
+            else
+                cout << "Элемент не содержится в set" << endl;
+            choice = _getch();
+            break;
+        }
+        case 52:
+            printMenu();
+            set.displaySet();
+            choice = _getch();
+            break;
+        case 53:
+            choice = 0;
+            break;
+        default:
+            printMenu();
+            choice = _getch();
+        }
+    }
+
+    return 0;
 
 
 

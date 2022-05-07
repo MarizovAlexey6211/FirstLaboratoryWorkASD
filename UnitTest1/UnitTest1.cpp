@@ -57,5 +57,19 @@ namespace UnitTest1
 			Assert::IsTrue(tmp->right == nullptr);
 			Assert::IsTrue(tmp->left != nullptr);
 		}
+		TEST_METHOD(PrintTest) {
+			Set<int> set;
+			set.add(2);
+			set.add(1);
+			set.add(3);
+			ostringstream os1, os2;
+			set.print(os1);
+			string result = os1.str();
+			Assert::IsTrue(result == "{ 1 2 3 }\n");
+			set.remove(2);
+			set.print(os2);
+			result = os2.str();
+			Assert::IsTrue(result == "{ 1 3 }\n");
+		}
 	};
 }
